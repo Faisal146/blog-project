@@ -1,0 +1,43 @@
+{
+  "name": "blog-project",
+  "version": "1.0.0",
+  "description": "a blog management system",
+  "main": "index.js",
+  "scripts": {
+    "start:prod": "node dist/server.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "format:fix": "npx prettier --write src"
+  },
+  "author": "faisal islam",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/validator": "^13.12.2",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.21.0"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-status": "^2.1.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.9.5",
+    "validator": "^13.12.0",
+    "zod": "^3.24.1"
+  }
+}

@@ -1,0 +1,5 @@
+query builder**
+virtual**
+statics*
+ $each
+  $pull: { faculties: { $in: payload } },

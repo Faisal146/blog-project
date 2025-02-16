@@ -13,7 +13,6 @@ const blogSchema = new mongoose.Schema<Tblog>(
     },
     author: {
       type: mongoose.Schema.ObjectId,
-      required: true,
       ref: 'User',
     },
     isPublished: {

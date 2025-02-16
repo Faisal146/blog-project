@@ -12,7 +12,7 @@ app.use(cors());
 
 // applications routes
 
-app.use('/api/v1/', router);
+app.use('/api/', router);
 
 const getAControllar = (req: Request, res: Response) => {
   res.send('Elite University Server is running');

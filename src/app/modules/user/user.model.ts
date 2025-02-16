@@ -1,7 +1,9 @@
 import mongoose, { model } from 'mongoose';
-import { TUser } from './user.interface';
+import { TUser, UserStaticModel } from './user.interface';
+import config from '../../config';
+import bcrypt from 'bcrypt';
 
-const userSchema = new mongoose.Schema<TUser>(
+const userSchema = new mongoose.Schema<TUser, UserStaticModel>(
   {
     name: {
       type: String,
@@ -12,6 +14,7 @@ const userSchema = new mongoose.Schema<TUser>(
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -33,4 +36,23 @@ const userSchema = new mongoose.Schema<TUser>(
   },
 );
 
-export const User = model<TUser>('User', userSchema);
+userSchema.pre('save', async function (next) {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user = this; // doc
+  // hashing password and save into DB
+  user.password = await bcrypt.hash(user.password, Number(config.salt_rounds));
+
+  next();
+});
+
+userSchema.statics.isPasswordMatched = async function (
+  plainTextPassword,
+  hashedPassword,
+) {
+  return await bcrypt.compare(plainTextPassword, hashedPassword);
+};
+userSchema.statics.isEmailExists = async function (email) {
+  return await User.findOne({ email });
+};
+
+export const User = model<TUser, UserStaticModel>('User', userSchema);

@@ -74,18 +74,19 @@ live-link - https://blog-project-one-theta.vercel.app/api/auth/register
 
 **Request Body:**
 
-````json
+```json
 {
   "name": "John Doe",
   "email": "john@example.com",
   "password": "securepassword"
 }
+```
 
 ### 2 Login User
 
- **POST** `/api/auth/login`
+**POST** `/api/auth/login`
 
- live-link - https://blog-project-one-theta.vercel.app/api/auth/login
+live-link - https://blog-project-one-theta.vercel.app/api/auth/login
 
 **Request Body:**
 
@@ -94,7 +95,7 @@ live-link - https://blog-project-one-theta.vercel.app/api/auth/register
   "email": "john@example.com",
   "password": "securepassword"
 }
-````
+```
 
 ### 3 Create Blog
 

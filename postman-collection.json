@@ -1,0 +1,224 @@
+{
+  "info": {
+    "name": "blog project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "bruno",
+      "event": []
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register user",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "login",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "item": [
+        {
+          "name": "create",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "get",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "updatee",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpYW1AZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTczOTczNzE3MCwiZXhwIjoxNzQwMTY5MTcwfQ.c86SYzbph9Fd2_zQADENqGQgBGD9TC8VmFlZb6QQiRU",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{Lurl}}/blogs/",
+              "protocol": "",
+              "host": [
+                "{{Lurl}}"
+              ],
+              "path": [
+                "blogs",
+                ""
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"My First Blog\",\n  \"content\": \"This is the contentlkj of my blog.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "delete",
+          "event": [],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpYW1AZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTczOTczNzE3MCwiZXhwIjoxNzQwMTY5MTcwfQ.c86SYzbph9Fd2_zQADENqGQgBGD9TC8VmFlZb6QQiRU",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{Lurl}}/blogs/67b2510847224971510938ab",
+              "protocol": "",
+              "host": [
+                "{{Lurl}}"
+              ],
+              "path": [
+                "blogs",
+                "67b2510847224971510938ab"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"My First Blogingerkkk\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "block",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": ""
+            }
+          }
+        },
+        {
+          "name": "delete",
+          "event": [],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpYW1lQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM5NzgyODg2LCJleHAiOjE3NDAyMTQ4ODZ9.ElBtNOjsy0fNoMhnuPG7qQmQfCLC9LE5uWUcbc0FwgY",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{Lurl}}admin/users/67b23273dbde87ed12cf49de/block",
+              "protocol": "",
+              "host": [
+                "{{Lurl}}admin"
+              ],
+              "path": [
+                "users",
+                "67b23273dbde87ed12cf49de",
+                "block"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "Lurl",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

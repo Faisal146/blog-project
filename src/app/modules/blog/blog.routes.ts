@@ -19,6 +19,12 @@ router.patch(
   validationReq(blogValidations.updateBlogShema),
   blogControllers.updateBlog,
 );
+router.delete(
+  '/:id',
+  auth('admin', 'user'),
+  validationReq(blogValidations.updateBlogShema),
+  blogControllers.deleteBlog,
+);
 
 router.get('/', blogControllers.getAllBlogs);
 

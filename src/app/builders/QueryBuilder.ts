@@ -10,7 +10,7 @@ class QueryBuilder<T> {
   }
 
   search(searchableFields: string[]) {
-    const searchTerm = this?.query?.searchTerm;
+    const searchTerm = this?.query?.search;
 
     if (searchTerm) {
       this.modelQuery = this.modelQuery.find({
@@ -23,40 +23,24 @@ class QueryBuilder<T> {
     return this;
   }
 
-  filter() {
-    const queryObj = { ...this.query }; // copy
-    const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
-
-    excludeFields.forEach((el) => delete queryObj[el]);
-    this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
-
-    return this;
-  }
-
   sort() {
-    const sort =
-      (this?.query?.sort as string)?.split(',')?.join(' ') || '-createdAt';
+    const sortBy = this?.query?.sortBy || 'createdAt'; // Default sorting field
+    const order = this?.query?.sortOrder === 'desc' ? -1 : 1; // Default ascending
 
-    this.modelQuery = this.modelQuery.sort(sort as string);
+    //  const users = await User.find().sort({ [sortBy]: order });
+    console.log(sortBy);
 
-    return this;
-  }
-
-  paginate() {
-    const page = Number(this?.query?.page) || 1;
-    const limit = Number(this?.query?.limit) || 10;
-    const skip = (page - 1) * limit;
-
-    this.modelQuery = this.modelQuery.skip(skip).limit(limit);
+    this.modelQuery = this.modelQuery.sort({ [sortBy as string]: order });
 
     return this;
   }
 
-  fields() {
-    const fields =
-      (this?.query?.fields as string)?.split(',')?.join(' ') || '-__v';
+  filter() {
+    const authorId = this?.query?.filter;
 
-    this.modelQuery = this.modelQuery.select(fields);
+    if (authorId) {
+      this.modelQuery = this.modelQuery.find({ author: authorId });
+    }
 
     return this;
   }

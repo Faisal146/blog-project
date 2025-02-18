@@ -1,8 +1,9 @@
+import { CustomRequest } from '../../interface/customRequest';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { blogServices } from './blog.service';
 
-const createBlog = catchAsync(async (req, res) => {
+const createBlog = catchAsync(async (req: CustomRequest, res) => {
   const result = await blogServices.createBlogIntoDB(req.user, req.body);
 
   sendResponse(res, {
@@ -13,13 +14,25 @@ const createBlog = catchAsync(async (req, res) => {
   });
 });
 
-const updateBlog = catchAsync(async (req, res) => {
+const updateBlog = catchAsync(async (req: CustomRequest, res) => {
   const { id } = req.params;
   const result = await blogServices.updateBlogIntoDB(req.user, id, req.body);
 
   sendResponse(res, {
     success: true,
-    message: 'Updated Blog Title',
+    message: 'Blog updated successfully',
+    statusCode: 201,
+    data: result,
+  });
+});
+
+const deleteBlog = catchAsync(async (req: CustomRequest, res) => {
+  const { id } = req.params;
+  const result = await blogServices.deleteBlogFromDB(req.user, id);
+
+  sendResponse(res, {
+    success: true,
+    message: 'Blog updated successfully',
     statusCode: 201,
     data: result,
   });
@@ -39,4 +52,5 @@ export const blogControllers = {
   getAllBlogs,
   createBlog,
   updateBlog,
+  deleteBlog,
 };

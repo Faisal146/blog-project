@@ -21,8 +21,16 @@ const loginUser = async (payload: Tlogin) => {
   const emailExists = await User.findOne({ email: payload.email });
 
   if (!emailExists) {
-    throw new AppError(400, 'This email does not exists');
+    throw new AppError(404, 'This email does not exists');
   }
+
+  const isBlocked = emailExists?.isBlocked;
+
+  if (isBlocked) {
+    throw new AppError(400, 'you are blocked by admin');
+  }
+
+  //password check in bcrypt
 
   const isPasswordMatched = await User.isPasswordMatched(
     payload.password,
@@ -32,6 +40,8 @@ const loginUser = async (payload: Tlogin) => {
   if (!isPasswordMatched) {
     throw new AppError(401, 'Invalid credentials');
   }
+
+  //creating access token
 
   const jwtPayload = {
     email: payload.email,

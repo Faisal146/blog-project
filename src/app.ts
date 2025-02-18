@@ -15,16 +15,18 @@ app.use(cors());
 app.use('/api/', router);
 
 const getAControllar = (req: Request, res: Response) => {
-  res.send('Elite University Server is running');
+  res.send('Blog project Server is running');
 };
 
-// global error handler
-
-app.use(globalErrorHandler);
+// not found route
 app.use(notFound);
 
 // test route
 
 app.get('/', getAControllar);
+
+// global error handler
+
+app.use(globalErrorHandler as any);
 
 export default app;

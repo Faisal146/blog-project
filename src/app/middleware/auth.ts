@@ -8,9 +8,10 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 const auth = (...requiredRoles: any) => {
   return catchAsync(async (req: CustomRequest, res, next) => {
     const tokenWithBearer = req.headers.authorization;
-
     const token = tokenWithBearer?.split(' ')[1];
     // console.log(token);
+
+    console.log(tokenWithBearer);
 
     if (!token) {
       throw new AppError(500, 'you are not authorized');

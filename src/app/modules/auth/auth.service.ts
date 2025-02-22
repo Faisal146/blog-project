@@ -12,11 +12,14 @@ const createUserIntoDB = async (payload: TUser) => {
     throw new AppError(400, 'This email already exists');
   }
   const result = await User.create(payload);
-  return result;
+
+  const userResponse = result.toObject();
+  userResponse.password = '';
+
+  return userResponse;
 };
 
 const loginUser = async (payload: Tlogin) => {
-
   const emailExists = await User.findOne({ email: payload.email });
 
   if (!emailExists) {

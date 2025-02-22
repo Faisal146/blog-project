@@ -1,0 +1,22 @@
+meta {
+  name: updatee
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{Lurl}}/blogs/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpYW1AZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTczOTczNzE3MCwiZXhwIjoxNzQwMTY5MTcwfQ.c86SYzbph9Fd2_zQADENqGQgBGD9TC8VmFlZb6QQiRU
+}
+
+body:json {
+  {
+    "title": "My First Blog",
+    "content": "This is the contentlkj of my blog."
+  }
+}

@@ -28,7 +28,6 @@ class QueryBuilder<T> {
     const order = this?.query?.sortOrder === 'desc' ? -1 : 1; // Default ascending
 
     //  const users = await User.find().sort({ [sortBy]: order });
-    console.log(sortBy);
 
     this.modelQuery = this.modelQuery.sort({ [sortBy as string]: order });
 

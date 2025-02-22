@@ -16,7 +16,6 @@ const createUserIntoDB = async (payload: TUser) => {
 };
 
 const loginUser = async (payload: Tlogin) => {
-  console.log(payload);
 
   const emailExists = await User.findOne({ email: payload.email });
 

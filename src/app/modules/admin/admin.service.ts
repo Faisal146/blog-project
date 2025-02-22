@@ -27,7 +27,6 @@ const deleteBlogFromDB = (id: string) => {
     throw new AppError(404, 'this Blog is not exists');
   }
 
-  console.log(deletedBlog);
 
   return deletedBlog;
 };
